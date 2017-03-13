@@ -53,6 +53,7 @@ angular.module("productDetails", [])
                 console.log("gain" + $scope.cartArray.length);
                 $scope.length = $scope.cartArray.length;
 
+
                 localStorage.setItem('cartInfo', JSON.stringify($scope.cartArray));
                 console.log("length" + JSON.stringify(localStorage.length));
                 alert("your product has added to the cart");
