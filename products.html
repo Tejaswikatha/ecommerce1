@@ -14,7 +14,7 @@
                 <h1>Products:</h1></div>
         </div>
         <div class="row">
-            <div class="col-sm-6 col-md-4" ng-repeat="product in products1|filter:search|pagination: curPage * pageSize|limitTo: pageSize">
+            <div class="col-sm-6 col-md-4" ng-repeat="product in products1|filter:{name:search}|pagination: curPage * pageSize|limitTo: pageSize">
                 <div class="thumbnail">
                     <div class="thumbnail" ng-repeat="image in product.images" ng-if="$index == 0">
                         <img ng-src={{image.src}} alt="image" />
