@@ -24,10 +24,10 @@ angular.module("productDetails", [])
         }
 
         //console.log("devi" + JSON.stringify(proinfo));
-        $scope.model = proinfo.model;
-        $scope.make = proinfo.make;
+        $scope.name = proinfo.name;
         $scope.price = proinfo.price;
-        $scope.image = proinfo.picture;
+        $scope.price1 = proinfo.regular_price;
+        //  $scope.image = proinfo.picture;
 
         var contains = false;
         $scope.related = [];
