@@ -13,10 +13,10 @@ angular.module("ecommerceModule", ["products", "productDetails", "ui.router"])
             })
             .state("cartDetails", {
                 url: "/cartDetails",
-                templateUrl: "cartDetails.html"
+                templateUrl: "cartDetais.html"
             })
             .state("paymentDetails", {
                 url: "/paymentDetails",
-                templateUrl: "paymentDetails.html"
+                templateUrl: "pay.html"
             });
     });
