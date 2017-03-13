@@ -5,8 +5,8 @@
 </header>
 <hr>
 <div align=right>
-    <input type="button" value="Home" ng-click="home()" ; style="width:6%;height:3em;border-radius:5px;background-color:dodgerblue;color:white;margin-right:1%">
-    <input type="button" value="Back to Cart" ng-click="back()" ; style="width:10%;height:3em;border-radius:5px;background-color:dodgerblue;color:white;margin-right:2%">
+    <input type="button" value="Home" ng-click="home()" ; style="width:6%;height:3em;border-radius:5px;background-color:lightgrey;color:black;margin-right:1%">
+    <input type="button" value="Back to Cart" ng-click="back()" ; style="width:10%;height:3em;border-radius:5px;background-color:lightgrey;color:black;margin-right:2%">
 </div>
 <hr>
 
@@ -22,7 +22,7 @@
         <td style="border:1px solid black;border-collapse:collapse;padding-left:1%;color:black">{{obj.name}}</td>
         <td style="border:1px solid black;border-collapse:collapse;padding-left:1%;color:black" ng-model="rem"> {{obj.cost|number}}</td>
         <td style="border:1px solid black;border-collapse:collapse;padding-left:1%;color:black;">
-            <button style="border-radius:5px;width:50%;background-color:dodgerblue;" ng-click="remove(obj.name,obj.cost)">Remove</button>
+            <button style="border-radius:5px;width:50%;" ng-click="remove(obj.name,obj.cost)">Remove</button>
     </tr>
     <tr style="border:1px solid black;border-collapse:collapse;padding-left:1%;background-color:lightgrey">
         <td style="color:black;font-size:18px;font-weight:bold" align="right">Total:</td>
@@ -32,7 +32,7 @@
 </table>
 
 <br>
-<input type="button" ng-value="value" ng-click="continue();click=!click" style="width:12%;height:3em;border-radius:5px;margin-left:1%;background-color:grey;color:white">
+<input type="button" ng-value="value" ng-click="continue();click=!click" style="width:12%;height:3em;border-radius:5px;margin-left:1%;background-color:lightgrey;color:black">
 <br>
 
 <div ng-show="continuepay">
