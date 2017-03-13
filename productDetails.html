@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html ng-app = "productdetails">
 <head>
@@ -27,6 +28,31 @@
     <button ng-click = "buy()" class = "btncss" style = "background-color:blue;margin-left:2%" >Buy</button>
      <footer align ="left" style = "padding-top:200px"><button ng-click = "back()" class = "btncss" style = "background-color:black;color:white">Back</button> </footer>
 
+=======
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <h1>Product Details:</h1></div>
+    <div class="col-md-4"></div>
+</div>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="thumbnail">
+            <div class="thumbnail">
+                <img ng-src={{image}} alt="image">
+            </div>
+            <div class="container">
+                <h3 style="color:blue">{{name|uppercase}}</h3>
+                <h3>{{make}}</h3>
+                <h3><i class="fa fa-inr"></i>{{price|currency:""}}</h3>
+                <div>
+                    <button ng-click="cart()">Add to cart</button>
+                    <button ng-click="buy()">Buy</button>
+                </div>
+            </div>
+        </div>
+>>>>>>> origin/ecomm
     </div>
     </body>
 </html>

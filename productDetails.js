@@ -1,9 +1,20 @@
+<<<<<<< HEAD
  var myModule = angular.module("productdetails",['ui.router'])
                myModule.controller("productdetailsctrl",function($scope,$window,$state,$http){
                    $scope.data = {}
                    $http({
                        url:"vehicles.json",
                        method:"GET",
+=======
+angular.module("productDetails", [])
+    .controller("detailsController", function ($scope, $http, $stateParams, $state) {
+        var proinfo = JSON.parse($stateParams.details);
+        $scope.name = proinfo.name;
+        $scope.price = proinfo.price;
+        $scope.image = proinfo.images.src;
+        // $scope.proDetails = function (id) {
+        console.log("id" + proinfo.model);
+>>>>>>> origin/ecomm
 
                    })
                    .then(function(response){
