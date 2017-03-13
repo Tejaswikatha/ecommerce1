@@ -1,0 +1,123 @@
+<!Doctype html>
+<html ng-app="cartModule">
+    <head>
+        <title>Cart-Details</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src=""//ajax.googleapis.com/ajax/libs/angularjs/X.Y.Z/angular-messages.js""></script>
+        <link href="css/style1.css" rel="stylesheet" type="text/css"/>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body ng-controller="cartDetailsController">
+        <script src = "angular-ui-router.js"></script>
+        <script src = "angular.min.js"></script>
+        <script src  = "cartDetailsController.js"></script>
+        <div ui-view></div>
+        <p class="text-info">Thanks for shopping </p>
+        <div class="container-fluid">
+        <div class="row-fluid">
+        <div class="span8">
+
+            <h3>View Your Cart Product Details</h3>
+
+        <table class="table table-bordered">
+            <tr class="well">
+                <th><b>Product-Name</b></th>
+                <th class="tdRight"><b>Price</b></th>
+                <th class="tdCenter" colspan="2" ><b>Quantity</b></th>
+            </tr>
+            <tr ng-repeat="item in cart">
+                <td>{{item.name}}</td>
+                <td class="tdRight" id="n1">{{item.regular_price}}</td>
+                <td><input type="number" id="n2" style="width:32px;color:black" ng-change="findTotal(item.regular_price)" ng-model="myCost" min="1" placeholder="1"/>{{item.myCost}}</td>
+                <td><input type="button" value="Remove" ng-click="onRemove($index)"/></td>
+
+
+<!--                <td><input type="submit" value="Submit" ng-click="findTotal(item.cost)"><span id="result"></span></td>-->
+            </tr>
+            <tr class="well">
+                <th>Total</th>
+                <td class="tdRight" colspan="3">{{getTotal()}}</td>
+            </tr>
+            </table></div><br><br>
+
+            <button data-toggle="collapse" data-target="#demo" class="btn btn-info">Add Address</button>
+            <div id="demo" class="collapse">
+                <br><br>
+        <form class="form-horizontal" role="form" name="sampleForm" validate>
+            <style>
+                .error {
+                        background-color: red;
+                        }
+
+                .bad {
+                        color: red;
+                        }
+            </style>
+	    <div class="form-group">
+		  <div class="col-md-4">
+              <lable ng-class="{bad: ( sampleForm.name.$invalid && sampleForm.name.$pristine )  }">Full Name:</lable>
+		  <input type="text" class="form-control" name="name" ng-model="name" ng-pattern="/^[a-zA-Z\s]*$/" required/>
+              <span ng-show="isInvalid('name')" class="help-inline">Name is required</span>
+        <span ng-show="isValid('name')">Great!</span>
+
+	      </div>
+        </div>
+
+	    <div class="form-group">
+		  <div class="col-md-4">
+              <lable ng-class="{bad: ( sampleForm.mobileno.$invalid && sampleForm.mobileno.$pristine )  }">Mobile No:</lable>
+		  <input type="text" class="form-control" name="mobileno" ng-model="mobileno" ng-minlength="10" ng-maxlength="13" ng-pattern="/^[0-9]*$/" />
+              <span ng-show="isInvalid('mobileno')" class="help-inline">enter number only</span>
+        <span ng-show="isValid('mobileno')">Great!</span>
+	      </div>
+        </div>
+         <div class="form-group">
+		  <div class="col-md-4">
+		  Email Id:<input type="email" class="form-control" name="emailid" ng-model="emailid" required/>
+	   </div>
+        </div>
+         <div class="form-group">
+		  <div class="col-md-4">
+              <label>Address:</label>
+		  <input type="text" class="form-control" name="address" ng-model="address" required/>
+	      </div>
+        </div>
+        <div class="form-group">
+		  <div class="col-md-4">
+              <label>Pin-Code:</label>
+		  <input type="text" class="form-control" name="pincode" ng-model="pincode" ng-minlength="6" ng-maxlength="6" ng-pattern="/^[0-9]+$/" required/>
+	      </div>
+        </div>
+
+	    <div class="form-group">
+		  <div style="padding-left:110px">
+              <input type="reset" value="Submit" class="btn btn-info" ng-click="showdetails()" required/>
+		  </div>
+        </div><br><br>
+<!--
+            <div class="pull-center">
+                Name:<label>{{fname}}</label><br><br>
+                Mobile No:<label>{{mobile}}</label><br><br>
+                Email Id:<label>{{email}}</label><br><br>
+                Address:<label>{{add}}</label><br><br>
+                Pin-Code:<label>{{pcode}}</label><br><br>
+            </div>
+-->
+
+
+        </form>
+        </div><br><br>
+
+        <div class="span4">
+            <p class="text-info" align="right"><input type="button" value="Shop More" class="btn btn-info" ng-click="clickAdd()" style="width: 50%"/> </p>
+            <p class="text-info" align="right"><input type="button" value="Clear Cart" class="btn btn-info" ng-click="clearItems()" style="width: 50%"/></p>
+            <p class="text-info" align="right"><input type="button" value="checkout" class="btn btn-info" ng-click="clickPay()" style="width: 50%"/></p>
+        </div>
+            </div>
+        </div>
+    </body>
+</html>
