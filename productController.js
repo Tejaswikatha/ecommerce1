@@ -3,7 +3,6 @@ angular.module("products", [])
         $scope.products1 = [];
         $scope.curPage = 0;
         $scope.pageSize = 9;
-        var image = [];
         var au = window.btoa("ck_29b4d149bb885a7c81597b217a74a7002f6d8001:cs_89414dbabbf145fefd2e112cf4f51c7b7b390699"),
             headers = {
                 "Authorization": "Basic " + au
