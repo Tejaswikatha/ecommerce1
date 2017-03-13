@@ -1,4 +1,4 @@
-angular.module("ecommerceModule", ["products", "productDetails", "ui.router"])
+angular.module("ecommerceModule", ["products", "productDetails", "ui.router", "paypal-button"])
     .config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise("/products");
         $stateProvider.state("products", {
