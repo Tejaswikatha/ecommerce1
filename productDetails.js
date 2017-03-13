@@ -3,7 +3,7 @@ angular.module("productDetails", [])
         var proinfo = JSON.parse($stateParams.details);
         $scope.name = proinfo.name;
         $scope.price = proinfo.price;
-        $scope.image = proinfo.images.src;
+        // $scope.image = proinfo.images.src;
         // $scope.proDetails = function (id) {
         console.log("id" + proinfo.model);
 
