@@ -21,7 +21,7 @@ var appCartDetails = angular.module('cartModule', []);
         $scope.getTotal = function() {
         var total = 0;
         for(var i=0; i< $scope.cart.length;i++){
-            total += parseInt($scope.cart[i].regular_price);
+            total += parseInt($scope.cart[i].price);
         }
         return total;
         }
@@ -62,10 +62,10 @@ var appCartDetails = angular.module('cartModule', []);
                 //localStorage.clear();
         }
 
-        $scope.findTotal = function(regular_price){
+        $scope.findTotal = function(price){
 //            }
         var num2 = document.getElementById("n2").value;
-            $scope.myCost = regular_price * num2;
+            $scope.myCost = price * num2;
             alert($scope.myCost);
     }
 
