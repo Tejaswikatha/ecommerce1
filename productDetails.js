@@ -38,6 +38,7 @@ angular.module("productDetails", [])
         // console.log($scope.cartArray);
         $scope.length = $scope.cartArray.length;
 
+
         $scope.addToCart = function () {
             for (var j = 0; j < $scope.cartArray.length; j++) {
 
