@@ -35,7 +35,7 @@ var appCartDetails = angular.module('cartModule', []);
         }
 
         $scope.clickPay = function(){
-            $state.go("paymentDetails",{payment:JSON.stringify($scope.cartinfo)});
+            $state.go("paymentDetails",{payment1:JSON.stringify($scope.cartinfo)});
         }
         $scope.addDetail = function(){
         myObject = {};
