@@ -69,10 +69,8 @@
 
 	    <div class="form-group">
 		  <div class="col-md-4">
-              <lable ng-class="{bad: ( sampleForm.mobileno.$invalid && sampleForm.mobileno.$pristine )  }">Mobile No:</lable>
+              <lable>Mobile No:</lable>
 		  <input type="text" class="form-control" name="mobileno" ng-model="mobileno" ng-minlength="10" ng-maxlength="13" ng-pattern="/^[0-9]*$/" />
-              <span ng-show="isInvalid('mobileno')" class="help-inline">enter number only</span>
-        <span ng-show="isValid('mobileno')">Great!</span>
 	      </div>
         </div>
          <div class="form-group">
