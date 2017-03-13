@@ -39,7 +39,7 @@ var myapp = angular.module("payDetails", [])
                     transactions: [
                         {
                             amount: {
-                                total: '10.00',
+                                total: $scope.totalcost,
                                 currency: 'USD'
                             }
                         }
