@@ -17,6 +17,6 @@ angular.module("ecommerceModule", ["products", "productDetails", "ui.router"])
             })
             .state("paymentDetails", {
                 url: "/paymentDetails",
-                templateUrl: "paymentDetails.html"
+                templateUrl: "pay.html"
             });
     });
