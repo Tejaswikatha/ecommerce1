@@ -1,6 +1,6 @@
 var myapp = angular.module("payDetails", [])
     .controller("payCtrl", function ($scope, $stateParams, $state) {
-        var paypal = JSON.parse($stateParams.payment);
+        var paypal = JSON.parse($stateParams.payment1);
         var totalcost = 0;
 
         $scope.payy = paypal;
@@ -20,7 +20,7 @@ var myapp = angular.module("payDetails", [])
         };
         $scope.back = function () {
                 $state.go("cartDetails", {
-                    cart: $stateParams.payment
+                    cart: $stateParams.payment1
                 });
 
             }
@@ -39,7 +39,7 @@ var myapp = angular.module("payDetails", [])
                     transactions: [
                         {
                             amount: {
-                                total: '1.00',
+                                total: '10.00',
                                 currency: 'USD'
                             }
                         }
