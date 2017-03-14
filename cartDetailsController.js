@@ -31,9 +31,14 @@ appCartDetails.controller('cartDetailsController', function ($scope, $stateParam
     }
 
     $scope.clickAdd = function () {
+<<<<<<< HEAD
         $state.go("products", {
             detail:JSON.stringify($scope.cartinfo)
         });
+=======
+        console.log("hi");
+        $state.go("products");
+>>>>>>> origin/ecomm
     }
 
     $scope.clickPay = function () {
