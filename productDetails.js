@@ -98,7 +98,7 @@ angular.module("productDetails", [])
         }
 
         $scope.similar = function (name) {
-            var au1 = window.btoa("ck_29b4d149bb885a7c81597b217a74a7002f6d8001:cs_89414dbabbf145fefd2e112cf4f51c7b7b390699"),
+            var au1 = window.btoa("ck_639e1b2d855aa23eba3b7bae585c7da4690d4f8a:cs_4f1eb33d7c3ff1f621df9973add39fe0dcecfc27"),
                 headers = {
                     "Authorization": "Basic " + au
                 };
