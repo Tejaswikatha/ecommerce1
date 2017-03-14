@@ -2,17 +2,22 @@ angular.module("productDetails", [])
     .controller("detailsController", function ($scope, $http, $stateParams, $state) {
         var proinfo = JSON.parse($stateParams.details);
         console.log(proinfo);
-        $scope.cartArray = [];
+        // $scope.cartArray = [];
         var isPresentInCart;
 
-        $scope.cartArray1 = JSON.parse(localStorage.getItem('cartInfo'));
-        if ($scope.cartArray.length > 0) {
-            for (var n = 0; n < $scope.cartArray1.length; n++) {
-                if ($scope.cartArray1[n]._id == proinfo._id) {
-                    isPresentInCart = true;
-                }
+        $scope.cartArray = JSON.parse(localStorage.getItem('cartInfo'));
+        // console.log("dyfg" + $scope.cartArray.length);
+        if (!$scope.cartArray)
+            $scope.cartArray = [];
+        // console.log($scope.cartArray);
+        $scope.length = $scope.cartArray.length;
+
+        for (var n = 0; n < $scope.cartArray.length; n++) {
+            if ($scope.cartArray[n].id == proinfo.id) {
+                isPresentInCart = true;
             }
         }
+
         if (isPresentInCart) {
             console.log("Contains in cart")
             $scope.showAddCart = false;
@@ -33,23 +38,17 @@ angular.module("productDetails", [])
 
         var contains = false;
         $scope.related = [];
-        $scope.cartArray = JSON.parse(localStorage.getItem('cartInfo'));
+        //$scope.cartArray = JSON.parse(localStorage.getItem('cartInfo'));
         //console.log(JSON.stringify($scope.cartArray));
-        if (!$scope.cartArray)
-            $scope.cartArray = [];
-        // console.log($scope.cartArray);
-        $scope.length = $scope.cartArray.length;
 
 
         $scope.addToCart = function () {
-            if ($scope.cartArray.length == 0) {
-                $scope.cartArray.push(proinfo);
-            }
+
 
             for (var j = 0; j < $scope.cartArray.length; j++) {
 
                 // console.log("arr" + $scope.cartArray);
-                if (proinfo._id == $scope.cartArray[j]._id) {
+                if (proinfo.id == $scope.cartArray[j].id) {
                     contains = true;
                     break;
                 }
@@ -57,34 +56,41 @@ angular.module("productDetails", [])
             }
             if (!contains) {
                 $scope.cartArray.push(proinfo);
-                console.log("gain" + $scope.cartArray.length);
-                $scope.length = $scope.cartArray.length;
-
+                //console.log("gain" + $scope.cartArray.length);
+                // alert("your product hs added to the cart successfully");
+                $scope.showAddCart = false;
+                $scope.showRemoveCart = true;
 
                 localStorage.setItem('cartInfo', JSON.stringify($scope.cartArray));
-                console.log("length" + JSON.stringify(localStorage.length));
+                $scope.length = $scope.cartArray.length;
+                // console.log("length" + JSON.stringify(localStorage.length));
                 alert("your product has added to the cart");
-                $stateParams.hide = false;
-                $scope.showAddCart = false;
-                $scope.showRemoveCart = true
+                // $stateParams.hide = false;
 
             } else {
                 alert("the prduct has been added already");
+                // $scope.length = $scope.cartArray.length;
+                // $scope.showAddCart = false;
+                // $scope.showRemoveCart = true;
             }
 
 
         }
         $scope.remove = function () {
             for (var k = 0; k < $scope.cartArray.length; k++) {
-                if (proinfo._id == $scope.cartArray[k]._id) {
+                if (proinfo.id == $scope.cartArray[k].id) {
                     $scope.cartArray.splice(k, 1);
                     localStorage.setItem('cartInfo', JSON.stringify($scope.cartArray));
                     $scope.length = $scope.cartArray.length;
-                    $stateParams.hide = true;
+                    //$stateParams.hide = true;
                     $scope.showAddCart = true;
-                    $scope.showRemoveCart = false
-                    s
+
+                    $scope.showRemoveCart = false;
+
+                    $scope.showRemoveCart = false;
                 }
+
+
             }
 
         }

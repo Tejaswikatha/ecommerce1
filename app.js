@@ -12,7 +12,7 @@ angular.module("ecommerceModule", ["products", "productDetails", "ui.router", "p
                 controller: "detailsController"
             })
             .state("cartDetails", {
-                url: "/cartDetails",
+                url: "/cartDetails/:cart",
                 templateUrl: "cartDetais.html"
             })
             .state("paymentDetails", {

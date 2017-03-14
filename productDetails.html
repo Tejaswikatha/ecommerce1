@@ -43,7 +43,7 @@
     <br>
     <center>
 
-        <div align="center" style="border:1px solid black;width:50%;padding-top:20px;height:300px">
+        <div align="center" style="border:1px solid black;width:60%;padding-top:20px;height:300px">
             <div style="position:relative;float:left;width:60%;margin-top:20px">
                 <img ng-src={{image}} class="imgcss">
                 <br>
@@ -52,7 +52,7 @@
             <div>
                 <h3 style="color:black">name:{{name}}</h3>
                 <h3 style="color:black"> price : {{price|currency:""}}</h3>
-                <h3 style="color:black">regular Price : {{regular_price|currency:""}}</h3>
+                <h3 style="color:black">regular Price : {{price1|currency:""}}</h3>
 
             </div>
 
@@ -60,7 +60,7 @@
             <button ng-click="addToCart()" class="btncss" style="background-color:dimgrey" ng-hide=!showAddCart>Add to cart</button>
             <button ng-click="buy()" class="btncss" style="background-color:dimgrey;width:20%">Buy</button>
             <button style="background-color:dimgrey;width:20%" class="btncss" ng-click="back()">Back</button>
-            <button style="background-color:dimgrey;width:25%" class="btncss" ng-click="remove()" ng-hide=!showRemoveCart>Remove from cart</button>
+            <button style="background-color:dimgrey;width:30%" class="btncss" ng-click="remove()" ng-hide=!showRemoveCart>Remove from cart</button>
             <br>
             <br>
         </div>
