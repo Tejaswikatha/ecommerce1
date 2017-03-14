@@ -30,8 +30,9 @@ appCartDetails.controller('cartDetailsController', function ($scope, $stateParam
 
 
     $scope.clickPay = function () {
+        console.log(JSON.stringify($scope.cartinfo));
         $state.go("paymentDetails", {
-            payment1: JSON.stringify($scope.cartinfo)
+            paymentData: JSON.stringify($scope.cart)
         });
     }
     $scope.addDetail = function () {

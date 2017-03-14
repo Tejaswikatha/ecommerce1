@@ -18,7 +18,7 @@ angular.module("ecommerceModule", ["products", "productDetails", "ui.router", "p
 
             })
             .state("paymentDetails", {
-                url: "/paymentDetails/:payment1",
+                url: "/paymentDetails/:paymentData",
                 templateUrl: "pay.html",
                 controller: "payCtrl"
             });
