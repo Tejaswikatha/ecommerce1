@@ -2,7 +2,7 @@ angular.module("productDetails", [])
     .controller("detailsController", function ($scope, $http, $stateParams, $state) {
         var proinfo = JSON.parse($stateParams.details);
         console.log(proinfo);
-
+        $scope.cartArray = [];
         var isPresentInCart;
 
         $scope.cartArray1 = JSON.parse(localStorage.getItem('cartInfo'));
