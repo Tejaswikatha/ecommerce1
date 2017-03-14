@@ -1,5 +1,3 @@
-<script src="https://www.paypalobjects.com/api/checkout.js" data-version-4></script>
-
 <header>
     <h2 align="center" style="color:red;background-color:skyblue"><b>Order Summary</b></h2>
 </header>
@@ -20,7 +18,7 @@
     </tr>
     <tr ng-repeat="obj in payy">
         <td style="border:1px solid black;border-collapse:collapse;padding-left:1%;color:black">{{obj.name}}</td>
-        <td style="border:1px solid black;border-collapse:collapse;padding-left:1%;color:black" ng-model="rem"> {{obj.cost|number}}</td>
+        <td style="border:1px solid black;border-collapse:collapse;padding-left:1%;color:black" ng-model="rem"> {{obj.price|number}}</td>
         <td style="border:1px solid black;border-collapse:collapse;padding-left:1%;color:black;">
             <button style="border-radius:5px;width:50%;" ng-click="remove(obj.name,obj.cost)">Remove</button>
     </tr>
@@ -34,7 +32,9 @@
 <br>
 <input type="button" ng-value="value" ng-click="continue();click=!click" style="width:12%;height:3em;border-radius:5px;margin-left:1%;background-color:lightgrey;color:black">
 <br>
-
+<h2 align="center" style="color:red;background-color:skyblue">Payment Details</h2>
+<br>
+<br>
 <div ng-show="continuepay">
 
     <paypal-button env="opts.env" client="opts.client" payment="opts.payment" commit="opts.commit" on-authorize="opts.onAuthorize"></paypal-button>
