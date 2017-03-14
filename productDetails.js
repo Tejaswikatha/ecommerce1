@@ -6,9 +6,11 @@ angular.module("productDetails", [])
         var isPresentInCart;
 
         $scope.cartArray1 = JSON.parse(localStorage.getItem('cartInfo'));
-        for (var n = 0; n < $scope.cartArray1.length; n++) {
-            if ($scope.cartArray1[n]._id == proinfo._id) {
-                isPresentInCart = true;
+        if ($scope.cartArray.length > 0) {
+            for (var n = 0; n < $scope.cartArray1.length; n++) {
+                if ($scope.cartArray1[n]._id == proinfo._id) {
+                    isPresentInCart = true;
+                }
             }
         }
         if (isPresentInCart) {
