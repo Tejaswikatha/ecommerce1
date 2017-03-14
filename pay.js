@@ -8,60 +8,47 @@ var myapp = angular.module("payDetails", [])
         var totalcost = 0;
         $scope.payy = paypalvar;
         console.log("pay " + JSON.stringify($stateParams))
+            //total cost function
+        $scope.totalcost = 0;
+        $scope.total = function () {
+
+            for (var i = 0; i < paypalvar.length; i++) {
+                $scope.totalcost = $scope.totalcost + parseInt(paypalvar[i].price);
+                console.log("pay " + $scope.totalcost)
+            }
+        }
+        $scope.total();
+
+        //continue function
         $scope.value = "Continue";
         $scope.continue = function () {
-            $scope.continuepay = !$scope.continuepay;
+            if ($scope.totalcost != 0) {
+                $scope.continuepay = !$scope.continuepay;
 
-            if ($scope.continuepay)
-                $scope.value = "Hide";
-            else
-                $scope.value = "Continue";
+                if ($scope.continuepay)
+                    $scope.value = "Hide";
+                else
+                    $scope.value = "Continue";
+            } else {
+                alert("Your cart is empty!!!");
+            }
         };
+        //home function
         $scope.home = function () {
 
             $state.go("products");
         };
+        //back function
         $scope.back = function () {
             $state.go("cartDetails", {
                 cart: $stateParams.paymentData
             });
         }
 
-        $scope.confirm = function () {
-            alert("Your order is confirmed");
-        };
-        $scope.confirmfn = function () {
-            if (!$scope.debitcard) {
-                $scope.err1 = "Enter valid card number";
-            }
-            if (!$scope.monthval) {
-                $scope.err2 = "Enter valid expiry date";
-            }
-            if (!$scope.namecardval) {
-                $scope.err3 = "Enter valid card name";
-            } else {
-                alert("Your order is confirmed");
-            }
-        }
-        $scope.show = function () {
-            if (!$scope.captchaval) {
-                $scope.err = "Please enter valid captcha code";
-            } else {
-                alert("Your order is confirmed");
-            }
-        }
 
 
-        //total cost function
-        $scope.totalcost = 0;
-        $scope.total = function () {
 
-                for (var i = 0; i < paypalvar.length; i++) {
-                    $scope.totalcost = $scope.totalcost + parseInt(paypalvar[i].price);
-                    console.log("pay " + $scope.totalcost)
-                }
-            }
-            //total cost
+        //total cost
         $scope.remove = function (name, price) {
 
             var index = -1;
@@ -71,9 +58,7 @@ var myapp = angular.module("payDetails", [])
                     index = j;
                     break;
                 }
-                if (index === -1) {
-                    alert("error");
-                }
+
             }
             console.log(index);
             $scope.payy.splice(index, 1);
@@ -82,7 +67,9 @@ var myapp = angular.module("payDetails", [])
             console.log("pay " + $scope.totalcost)
 
         };
-        $scope.total();
+        $scope.message = function () {
+            alert("Your payment was successfull")
+        }
 
         //paypal function
         $scope.opts = {
@@ -113,6 +100,7 @@ var myapp = angular.module("payDetails", [])
                     // Show a success page to the buyer
                 });
             }
+
         };
 
     });
