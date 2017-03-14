@@ -99,7 +99,7 @@ angular.module("productDetails", [])
 
 
         $scope.buy = function () {
-            //console.log("Details" + model);
+            console.log("Going to Cart Details");
             $state.go("cartDetails", {
                 cart: JSON.stringify($scope.cartArray)
             });

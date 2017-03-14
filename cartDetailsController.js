@@ -1,15 +1,6 @@
 var appCartDetails = angular.module('cartModule', []);
-//appCartDetails.controller('cartDetailsController', function($scope, $http, $routeParams, $location){
 appCartDetails.controller('cartDetailsController', function ($scope, $stateParams, $state) {
-
-    //                  $http.get('vehicles.json')
-    //                  .then(function(response) {
-    //            $scope.items = response.data.products;
-    //            console.log("hi"+items);
-    //        });
-    //        $scope.model = {min: 0, max: 100, value: 1}
-    //        console.log("devi" +JSON.stringify($scope.model));
-    //$rootsocpe.quantityMulDisp = false;
+    console.log($stateParams)
     var cartinfo = JSON.parse($stateParams.cart);
     console.log("info " + JSON.stringify(cartinfo));
     $scope.cart = cartinfo;
