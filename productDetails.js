@@ -83,7 +83,7 @@ angular.module("productDetails", [])
                     $stateParams.hide = true;
                     $scope.showAddCart = true;
                     $scope.showRemoveCart = false
-                    s
+
                 }
             }
 
