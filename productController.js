@@ -11,7 +11,7 @@ angular.module("products", [])
                 headers: headers
             })
             .then(function (response) {
-                /*console.log("hii" + JSON.stringify(response));*/
+                console.log("hii" + JSON.stringify(response));
                 $scope.products1 = response.data;
                 //console.log(response)
                 //console.log("hi" + JSON.stringify($scope.products1));

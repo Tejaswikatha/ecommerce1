@@ -2,13 +2,15 @@ angular.module("productDetails", [])
     .controller("detailsController", function ($scope, $http, $stateParams, $state) {
         var proinfo = JSON.parse($stateParams.details);
         console.log(proinfo);
-
+        $scope.cartArray = [];
         var isPresentInCart;
 
         $scope.cartArray1 = JSON.parse(localStorage.getItem('cartInfo'));
-        for (var n = 0; n < $scope.cartArray1.length; n++) {
-            if ($scope.cartArray1[n]._id == proinfo._id) {
-                isPresentInCart = true;
+        if ($scope.cartArray.length > 0) {
+            for (var n = 0; n < $scope.cartArray1.length; n++) {
+                if ($scope.cartArray1[n]._id == proinfo._id) {
+                    isPresentInCart = true;
+                }
             }
         }
         if (isPresentInCart) {
@@ -40,6 +42,10 @@ angular.module("productDetails", [])
 
 
         $scope.addToCart = function () {
+            if ($scope.cartArray.length == 0) {
+                $scope.cartArray.push(proinfo);
+            }
+
             for (var j = 0; j < $scope.cartArray.length; j++) {
 
                 // console.log("arr" + $scope.cartArray);
