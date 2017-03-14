@@ -3,7 +3,7 @@
         <a ng-click="proDetails(product)"> {{product.model}} <img ng-src={{product.picture}}></a>
     </li>
 </ul>-->
-<p style="padding-left:3em;padding-top:2em;font-size:1.5em;color:blue;">
+<p style="padding-left:3em;padding-top:2em;font-size:1.5em;">
     Search
     <input ng-model="search">
 </p>
@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-md-4">
-                <h1 style="color:blue;">Products:</h1></div>
+                <h1>Products:</h1></div>
         </div>
         <div class="row">
             <div class="col-sm-6 col-md-4" ng-repeat="product in products1|filter:{name:search}|pagination: curPage * pageSize|limitTo: pageSize">
