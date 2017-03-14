@@ -32,7 +32,9 @@ appCartDetails.controller('cartDetailsController', function ($scope, $stateParam
 
     $scope.clickAdd = function () {
 
-        $state.go("products");
+        $state.go("products", {
+            detail: JSON.stringify($scope.cartinfo)
+        });
     }
 
 
@@ -72,6 +74,7 @@ appCartDetails.controller('cartDetailsController', function ($scope, $stateParam
         $scope.myCost = price * num2;
         alert($scope.myCost);
     }
+
 
 
 
