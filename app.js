@@ -1,4 +1,4 @@
-angular.module("ecommerceModule", ["products", "productDetails", "ui.router", "paypal-button", "cartModule"])
+angular.module("ecommerceModule", ["products", "productDetails", "ui.router", "paypal-button", "cartModule", "payDetails"])
     .config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise("/products");
         $stateProvider.state("products", {
@@ -17,6 +17,7 @@ angular.module("ecommerceModule", ["products", "productDetails", "ui.router", "p
             })
             .state("paymentDetails", {
                 url: "/paymentDetails/:payment1",
-                templateUrl: "pay.html"
+                templateUrl: "pay.html",
+                controller: "payCtrl"
             });
     });
