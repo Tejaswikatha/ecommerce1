@@ -42,6 +42,10 @@ angular.module("productDetails", [])
 
 
         $scope.addToCart = function () {
+            if ($scope.cartArray.length == 0) {
+                $scope.cartArray.push(proinfo);
+            }
+
             for (var j = 0; j < $scope.cartArray.length; j++) {
 
                 // console.log("arr" + $scope.cartArray);
