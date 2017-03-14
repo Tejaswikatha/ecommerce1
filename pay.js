@@ -1,9 +1,9 @@
 var myapp = angular.module("payDetails", [])
     .controller("payCtrl", function ($scope, $stateParams, $state) {
-        var paypal = JSON.parse($stateParams.payment1);
+        var paypalvar = JSON.parse($stateParams.payment1);
         var totalcost = 0;
 
-        $scope.payy = paypal;
+        $scope.payy = paypalvar;
         console.log("pay " + JSON.stringify($stateParams))
         $scope.value = "Continue";
         $scope.continue = function () {
@@ -86,8 +86,8 @@ var myapp = angular.module("payDetails", [])
         $scope.totalcost = 0;
         $scope.total = function () {
 
-                for (var i = 0; i < paypal.length; i++) {
-                    $scope.totalcost = $scope.totalcost + parseInt(paypal[i].cost);
+                for (var i = 0; i < paypalvar.length; i++) {
+                    $scope.totalcost = $scope.totalcost + parseInt(paypalvar[i].cost);
                     console.log("pay " + $scope.totalcost)
                 }
             }
