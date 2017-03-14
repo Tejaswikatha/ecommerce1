@@ -18,7 +18,7 @@
     </tr>
     <tr ng-repeat="obj in payy">
         <td style="border:1px solid black;border-collapse:collapse;padding-left:1%;color:black">{{obj.name}}</td>
-        <td style="border:1px solid black;border-collapse:collapse;padding-left:1%;color:black" ng-model="rem"> {{obj.price|number}}</td>
+        <td style="border:1px solid black;border-collapse:collapse;padding-left:1%;color:black" ng-model="rem"> {{obj.price|currency:""}}</td>
         <td style="border:1px solid black;border-collapse:collapse;padding-left:1%;color:black;">
             <button style="border-radius:5px;width:50%;" ng-click="remove(obj.name,obj.cost)">Remove</button>
     </tr>
