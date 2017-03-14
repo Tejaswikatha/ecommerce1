@@ -31,7 +31,9 @@ appCartDetails.controller('cartDetailsController', function ($scope, $stateParam
     }
 
     $scope.clickAdd = function () {
-        $state.go("products");
+        $state.go("products", {
+            detail:JSON.stringify($scope.cartinfo)
+        });
     }
 
     $scope.clickPay = function () {
