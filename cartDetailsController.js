@@ -65,10 +65,6 @@ appCartDetails.controller('cartDetailsController', function ($scope, $stateParam
         $scope.myCost = price * num2;
         alert($scope.myCost);
     }
-
-
-
-
     $scope.isInvalid = function (field) {
         return $scope.sampleForm[field].$invalid && $scope.sampleForm[field].$dirty;
     };
