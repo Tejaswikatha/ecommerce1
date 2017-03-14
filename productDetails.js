@@ -84,13 +84,13 @@ angular.module("productDetails", [])
                     $scope.length = $scope.cartArray.length;
                     //$stateParams.hide = true;
                     $scope.showAddCart = true;
-<<<<<<< HEAD
-                    $scope.showRemoveCart = false
-=======
-                    $scope.showRemoveCart = false;
->>>>>>> origin/ecomm
 
+                    $scope.showRemoveCart = false;
+
+                    $scope.showRemoveCart = false;
                 }
+
+
             }
 
         }
