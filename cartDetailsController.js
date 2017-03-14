@@ -31,6 +31,7 @@ appCartDetails.controller('cartDetailsController', function ($scope, $stateParam
     }
 
     $scope.clickAdd = function () {
+        console.log("hi");
         $state.go("products");
     }
 
