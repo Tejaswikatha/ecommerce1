@@ -18,7 +18,7 @@ appCartDetails.controller('cartDetailsController', function ($scope, $stateParam
 //    }
 
     $scope.clearItems = function () {
-        $scope.cart = [];
+        $scope.cart = {};
     }
 
     $scope.clickAdd = function () {
@@ -62,11 +62,10 @@ appCartDetails.controller('cartDetailsController', function ($scope, $stateParam
 
     $scope.getTotal1 = function() {
         var total = 0;
-        for(var i=0; i< $scope.cart.length;i++){
-            console.log($scope.cart[i].price);
+        for(var i=0; i<$scope.cart.length; i++){
             $scope.quantityNumber = document.getElementById("n2").value;
-            console.log($scope.quantityNumber);
-            total += (parseInt($scope.cart[i].price) * parseInt($scope.quantityNumber));
+            var newPrice = $scope.cart[i];
+            total += (parseInt($scope.quantityNumber) * parseInt(newPrice.price));
         }
         return total;
         }
