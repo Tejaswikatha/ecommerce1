@@ -22,13 +22,15 @@
                     <tr class="well">
                         <th><b>Product-Name</b></th>
                         <th class="tdRight"><b>Price</b></th>
-                        <th class="tdCenter" colspan="2"><b>Quantity</b></th>
+                        <th class="tdCenter"><b>Quantity</b></th>
+                        <th colspan="2"><b>New-Price</b></th>
                     </tr>
                     <tr ng-repeat="item in cart">
                         <td>{{item.name}}</td>
-                        <td class="tdRight" id="n1">{{quantity * item.price}}</td>
+                        <td class="tdRight" id="n1">{{item.price}}</td>
                         <td>
                             <input type="number" id="n2" data-ng-init="quantity=1" min="1" ng-model="quantity"></td>
+                        <td>{{quantity * item.price}}</td>
                         <td>
                             <input type="button" value="Remove" ng-click="onRemove($index)" />
                         </td>
@@ -38,7 +40,9 @@
                     </tr>
                     <tr class="well">
                         <th>Total</th>
-                        <td class="tdRight" colspan="3">{{getTotal()}}</td>
+                        <td class="tdRight"></td>
+                        <td></td>
+                        <td colspan="2">{{getTotal1()}}</td>
                     </tr>
                 </table>
             </div>
