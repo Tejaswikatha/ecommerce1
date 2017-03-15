@@ -9,16 +9,16 @@ appCartDetails.controller('cartDetailsController', function ($scope, $stateParam
         $scope.cart.splice(index, 1)
     }
 
-    $scope.getTotal = function () {
-        var total = 0;
-        for (var i = 0; i < $scope.cart.length; i++) {
-            total += parseInt($scope.cart[i].price);
-        }
-        return total;
-    }
+//    $scope.getTotal = function () {
+//        var total = 0;
+//        for (var i = 0; i < $scope.cart.length; i++) {
+//            total += parseInt($scope.cart[i].price);
+//        }
+//        return total;
+//    }
 
     $scope.clearItems = function () {
-        $scope.cart = [];
+        $scope.cart = {};
     }
 
     $scope.clickAdd = function () {
@@ -60,12 +60,16 @@ appCartDetails.controller('cartDetailsController', function ($scope, $stateParam
         //localStorage.clear();
     }
 
-    $scope.findTotal = function (price) {
-        //            }
-        var num2 = document.getElementById("n2").value;
-        $scope.myCost = price * num2;
-        alert($scope.myCost);
-    }
+    $scope.getTotal1 = function() {
+        var total = 0;
+        for(var i=0; i<$scope.cart.length; i++){
+            $scope.quantityNumber = document.getElementById("n2").value;
+            var newPrice = $scope.cart[i];
+            total += (parseInt($scope.quantityNumber) * parseInt(newPrice.price));
+        }
+        return total;
+        }
+
     $scope.isInvalid = function (field) {
         return $scope.sampleForm[field].$invalid && $scope.sampleForm[field].$dirty;
     };

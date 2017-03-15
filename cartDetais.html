@@ -22,13 +22,17 @@
                     <tr class="well">
                         <th><b>Product-Name</b></th>
                         <th class="tdRight"><b>Price</b></th>
-                        <th class="tdCenter" colspan="2"><b>Quantity</b></th>
+                        <th class="tdCenter"><b>Quantity</b></th>
+                        <th><b>New-Price</b></th>
+                        <th></th>
                     </tr>
                     <tr ng-repeat="item in cart">
                         <td>{{item.name}}</td>
-                        <td class="tdRight" id="n1">{{item.price}}</td>
+                        <td class="tdRight" id="n1"><i class="fa fa-inr"></i>{{item.price | currency:""}}</td>
                         <td>
-                            <input type="number" id="n2" style="width:32px;color:black" ng-change="findTotal(item.price)" ng-model="myCost" min="1" placeholder="1" />{{item.myCost}}</td>
+                            <input type="number" id="n2" ng-init="quantity=1" min="1" ng-model="quantity"></td>
+
+                        <td id="n3"><i class="fa fa-inr"></i>{{quantity * item.price | currency:""}}</td>
                         <td>
                             <input type="button" value="Remove" ng-click="onRemove($index)" />
                         </td>
@@ -38,7 +42,10 @@
                     </tr>
                     <tr class="well">
                         <th>Total</th>
-                        <td class="tdRight" colspan="3">{{getTotal()}}</td>
+                        <td class="tdRight"></td>
+                        <td></td>
+                        <td><i class="fa fa-inr"></i>{{getTotal1() | currency:""}}</td>
+                        <td></td>
                     </tr>
                 </table>
             </div>

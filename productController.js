@@ -25,7 +25,7 @@ angular.module("products", [])
         $scope.proDetails = function (id) {
             //console.log("id" + JSON.stringify(id));
             $state.go("productDetails", {
-                details: JSON.stringify(id)
+                details: id.id
             });
         }
     })
