@@ -26,9 +26,9 @@
                     </tr>
                     <tr ng-repeat="item in cart">
                         <td>{{item.name}}</td>
-                        <td class="tdRight" id="n1">{{item.price}}</td>
+                        <td class="tdRight" id="n1">{{quantity * item.price}}</td>
                         <td>
-                            <input type="number" id="n2" style="width:32px;color:black" ng-change="findTotal(item.price)" ng-model="myCost" min="1" placeholder="1" />{{item.myCost}}</td>
+                            <input type="number" id="n2" data-ng-init="quantity=1" min="1" ng-model="quantity"></td>
                         <td>
                             <input type="button" value="Remove" ng-click="onRemove($index)" />
                         </td>

@@ -9,13 +9,16 @@ appCartDetails.controller('cartDetailsController', function ($scope, $stateParam
         $scope.cart.splice(index, 1)
     }
 
-    $scope.getTotal = function () {
+    $scope.getTotal = function() {
         var total = 0;
-        for (var i = 0; i < $scope.cart.length; i++) {
-            total += parseInt($scope.cart[i].price);
+        for(var i=0; i< $scope.cart.length;i++){
+            console.log($scope.cart[i].price);
+            $scope.quantityNumber = document.getElementById("n2").value;
+            console.log($scope.jobValue);
+            total += (parseInt($scope.cart[i].price) * parseInt($scope.quantityNumber));
         }
         return total;
-    }
+        }
 
     $scope.clearItems = function () {
         $scope.cart = [];
@@ -60,12 +63,12 @@ appCartDetails.controller('cartDetailsController', function ($scope, $stateParam
         //localStorage.clear();
     }
 
-    $scope.findTotal = function (price) {
-        //            }
-        var num2 = document.getElementById("n2").value;
-        $scope.myCost = price * num2;
-        alert($scope.myCost);
-    }
+//    $scope.findTotal = function (price) {
+//        //            }
+//        var num2 = document.getElementById("n2").value;
+//        $scope.myCost = price * num2;
+//        alert($scope.myCost);
+//    }
     $scope.isInvalid = function (field) {
         return $scope.sampleForm[field].$invalid && $scope.sampleForm[field].$dirty;
     };
