@@ -16,6 +16,9 @@ angular.module("products", [])
                 //console.log(response)
                 //console.log("hi" + JSON.stringify($scope.products1));
                 $scope.noOfPages();
+            })
+            .catch(function (response) {
+                console.log(response)
             });
         $scope.noOfPages = function () {
             // console.log(x);
