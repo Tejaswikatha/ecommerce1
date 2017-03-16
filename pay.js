@@ -64,35 +64,101 @@ var myapp = angular.module("payDetails", [])
             console.log("pay " + $scope.totalcost)
 
         };
-
-        /* $scope.dataobj= {
-            var nameval= $scope.payy.name,
-             var priceval=$scope.payy.price, "payer": {
-                    "payment_method": "paypal"
+        var values = {};
+        for (var i = 0; i < paypalvar.length; i++) {
+            $scope.nameval = paypalvar[i].name;
+            $scope.priceval = paypalvar[i].price;
+            console.log("hello" + $scope.na)
+            values = {
+                productName: $scope.nameval,
+                productPrice: $scope.priceval
+            }
+        }
+        console.log("hi" + JSON.stringify(values))
+        console.log('Srujana' + values.productName);
+        //data
+        $scope.productData = {
+            order: {
+                /*payment_details: {
+                    method_id: 'bacs',
+                    method_title: 'Direct Bank Transfer',
+                    paid: true
+                },
+                billing: {
+                    product_name: values.name,
+                    product_price: values.price,
+                    product_id: "8",
+                    total: $scope.totalcost,
+                    currency: "USD"
                 },
 
-                "transactions": [
-                    {
-                        "amount": {
-                            "total": $scope.totalcost,
-                            "currency": "USD"
-                        }
-        }]
-                "shipping_address": {
-                    "recipient_name": "Srujana Pusapudi",
-                    "line1": "4th Floor",
-                    "line2": "Unit #34",
-                    "city": "San Jose",
-                    "state": "CA",
-                    "phone": "011862212345678",
-                    "postal_code": "50002",
-                    "country_code": "US"
+                shipping_address: {
+                    recipient_name: 'Srujana Pusapudi',
+                    address_1: "4th Floor",
+                    address_2: "Unit #34",
+                    city: "San Jose",
+                    state: "CA",
+                    postcode: "50002",
+                    country: "US"
                 }
-         };*/
+            }*/
+                payment_details: {
+                    method_id: 'bacs',
+                    method_title: 'Direct Bank Transfer',
+                    paid: true
+                },
+                billing_address: {
+                    first_name: 'John',
+                    last_name: 'Doe',
+                    address_1: '969 Market',
+                    address_2: '',
+                    city: 'San Francisco',
+                    state: 'CA',
+                    postcode: '94103',
+                    country: 'US',
+                    email: 'john.doe@example.com',
+                    phone: '(555) 555-5555'
+                },
+                shipping_address: {
+                    first_name: 'John',
+                    last_name: 'Doe',
+                    address_1: '969 Market',
+                    address_2: '',
+                    city: 'San Francisco',
+                    state: 'CA',
+                    postcode: '94103',
+                    country: 'US'
+                },
+                customer_id: 2,
+                line_items: [
+                    {
+                        product_id: 546,
+                        quantity: 2
+      },
+                    {
+                        product_id: 613,
+                        quantity: 1,
+                        variations: {
+                            pa_color: 'Black'
+                        }
+      }
+    ],
+                shipping_lines: [
+                    {
+                        method_id: 'flat_rate',
+                        method_title: 'Flat Rate',
+                        total: 10
+      }
+    ]
+            }
 
+        };
 
+        $scope.dataObj = [];
+        $scope.dataObj.push(JSON.stringify($scope.productData));
 
-        //paypal function
+        console.log("hello" + $scope.dataObj)
+            //paypal function
         $scope.opts = {
 
             env: 'sandbox',
@@ -105,7 +171,6 @@ var myapp = angular.module("payDetails", [])
                 console.log("hi" + env);
 
                 var client = this.props.client;
-                console.log("hiiii" + client);
                 return paypal.rest.payment.create(env, client, {
                     transactions: [
                         {
@@ -125,37 +190,56 @@ var myapp = angular.module("payDetails", [])
                 // Optional: display a confirmation page here
 
                 return actions.payment.execute().then(function () {
-                    console.log("da " + JSON.stringify(data));
+                    $scope.dataval = JSON.stringify(data.paymentID);
+                    console.log("hi" + $scope.dataval);
+                    $scope.transactionDetails($scope.dataval);
                     alert("Your payment was successfull!!\n" + "Payment Details:\n" + "Total:" + $scope.totalcost + "USD");
                     // Show a success page to the buyer
                 });
 
             }
 
+
         };
 
 
         //transaction details
-        /*var config = {
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+        $scope.transactionDetails = function (val) {
+            $scope.paymentId = val;
+            if ($scope.paymentId) {
+                $scope.dataObj.push($scope.paymentId);
+                $scope.ack = "success";
+                $scope.dataObj.push($scope.ack);
+            } else {
+                $scope.ack = "Fail";
+                $scope.dataObj.push($scope.ack);
             }
-        };
-        var auth = window.btoa("ck_639e1b2d855aa23eba3b7bae585c7da4690d4f8a:cs_4f1eb33d7c3ff1f621df9973add39fe0dcecfc27"),
-            headers = {
-                "Authorization": "Basic " + auth
-            };
-        $http.post("https://www.colourssoftware.com/wordpress/wp-json/wc/v1/products", dataobj, config).then(function (response) {
-                headers: headers,
+            console.log("hello" + $scope.dataObj)
+            var au = window.btoa("ck_639e1b2d855aa23eba3b7bae585c7da4690d4f8a:cs_4f1eb33d7c3ff1f621df9973add39fe0dcecfc27"),
+                result = {
+                    method: 'POST',
+                    url: "https://www.colourssoftware.com/wordpress/wp-json/wc/v1/orders",
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
+                        'Authorization': "Basic " + au
+                    },
+                    data: $scope.dataObj
+                }
+            $http(result).then(function (response) {
+                    console.log(response)
+                        /*if (response.data)
+                            $scope.msg = "Post data submitted successfully";*/
 
-            },
-            if (response.data)
-                $scope.msg = "Post data submitted successfully";
+                },
+                function (response) {
+                    console.log(response)
+                        /*$scope.msg = "Service not exists";
+                        $scope.statusval = response.status;
+                        $scope.statustext = response.statusText;*/
+                });
 
-            function (response) {
-                $scope.msg = "Service not exists";
-                $scope.statusval = response.status;
-                $scope.statustext = response.statusText;
-            })*/
+
+        }
+
 
     });
