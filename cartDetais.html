@@ -28,11 +28,11 @@
                     </tr>
                     <tr ng-repeat="item in cart">
                         <td>{{item.name}}</td>
-                        <td class="tdRight" id="n1"><i class="fa fa-inr"></i>{{item.price | currency:""}}</td>
+                        <td class="tdRight" id="n1">{{item.price}}</td>
                         <td>
                             <input type="number" id="n2" ng-init="quantity=1" min="1" ng-model="quantity"></td>
 
-                        <td id="n3"><i class="fa fa-inr"></i>{{quantity * item.price | currency:""}}</td>
+                        <td class="total-Price">{{quantity * item.price}}</td>
                         <td>
                             <input type="button" value="Remove" ng-click="onRemove($index)" />
                         </td>
@@ -44,7 +44,7 @@
                         <th>Total</th>
                         <td class="tdRight"></td>
                         <td></td>
-                        <td><i class="fa fa-inr"></i>{{getTotal1() | currency:""}}</td>
+                        <td>{{getTotal1()}}</td>
                         <td></td>
                     </tr>
                 </table>

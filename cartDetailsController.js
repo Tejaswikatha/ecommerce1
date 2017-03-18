@@ -61,14 +61,44 @@ appCartDetails.controller('cartDetailsController', function ($scope, $stateParam
     }
 
     $scope.getTotal1 = function() {
-        var total = 0;
-        for(var i=0; i<$scope.cart.length; i++){
-            $scope.quantityNumber = document.getElementById("n2").value;
-            var newPrice = $scope.cart[i];
-            total += (parseInt($scope.quantityNumber) * parseInt(newPrice.price));
-        }
-        return total;
-        }
+//        $scope.total = 0;
+//        for(var i=0; i<$scope.cart.length; i++){
+//      $scope.total += document.getElementsByClassName("n3").value;
+//            console.log("total" +$scope.total)
+//            var cellObjs = document.getElementsByClassName("n3");
+//        console.log(cellObjs);
+        var totalPrice = document.getElementsByClassName("total-Price");
+        var i, priceText, grandTotal=0;
+        for(i = 0; i < totalPrice.length; i++)
+            {
+                var x = JSON.stringify(totalPrice[i].innerHTML);
+                console.log("hi" +x);
+                priceText = parseInt(totalPrice[i].innerHTML);
+                grandTotal += (priceText);
+                console.log("hi" +grandTotal);
+            }
+            return grandTotal;
+//                var sum = 0;
+//         var cells = document.querySelectorAll("td:nth-of-type(4)");
+//                for(var i=0; i < cells.length; i++){
+//                    sum += parseFloat(cells[i].firstChild.data);
+//                    console.log("sum " +sum);
+//                }
+//                return sum;
+              //  document.getElementById('totalCont').innerHTML = 'Total: '+sum;
+            }
+//            $scope.quantityNumber = document.getElementById("n3").value;
+//            console.log($scope.cart[i]);
+//
+//            var newPrice = $scope.cart[i];
+//
+//            if($scope.cart.name == name){
+//              total += (parseInt($scope.quantityNumber) * parseInt(newPrice.price));
+//            }
+
+//        }
+//        return $scope.total;
+//        }
 
     $scope.isInvalid = function (field) {
         return $scope.sampleForm[field].$invalid && $scope.sampleForm[field].$dirty;
